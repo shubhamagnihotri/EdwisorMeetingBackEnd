@@ -14,7 +14,7 @@ let convertToLocalTime = (time) => {
 }
 
 let getCurrentTimeFOrTimeDifference=()=>{
-  return moment().format('MM/DD/YYYY h:mm a'); 
+  return moment().tz(timeZone).format('MM/DD/YYYY h:mm a'); 
 }
 module.exports = {
   now: now,
