@@ -285,7 +285,7 @@ meetingController.getTodayMeetingsForSnooze =(req,res)=>{
                             let sendTime = (dataTimeMs - miliSecond);
                         
                             if(sendTime >=0){
-                                let finalTime= sendTime-60000;
+                                let finalTime= sendTime-120000;
                                 filterdata.push({
                                     meetingUserId:res.meetingUserId,createdBy:res.createdBy,meetingTitle:res.meetingTitle
                                 ,snoozeTime:finalTime,snooze:true,meetingId:res.meetingId});
