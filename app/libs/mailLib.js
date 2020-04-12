@@ -7,15 +7,15 @@ let transporter = nodemailer.createTransport({
     //secure: false, // true for 465, false for other ports
     service:'gmail',
     auth: {
-      user: "shubham.agnihotri356@gmail.com", // generated ethereal user
-      pass:"########" // generated ethereal password
+      user: "nicspprt@gmail.com", // generated ethereal user
+      pass:"DA#ba<P!*]dp5]dI" // generated ethereal password
     }
 });
 
 let sendEmail =(data)=>{
     // console.log("emit Message sent: %s");
     let info = {
-        from: 'shubham.agnihotri35@gmail.com', // sender address
+        from: 'nicspprt@gmail.com', // sender address
         to: data.to, // list of receivers
         subject: data.subject, // Subject line
         text: data.text, // plain text body
