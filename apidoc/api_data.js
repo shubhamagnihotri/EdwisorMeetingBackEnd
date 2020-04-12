@@ -1,0 +1,825 @@
+define({ "api": [
+  {
+    "group": "auth",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/login",
+    "title": "api for user login.",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email of the user. (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>password of the user. (body params) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n    \"error\": false,\n    \"message\": \"Login Successful\",\n    \"status\": 200,\n    \"data\": {\n        \"authToken\": \"...............\",\n        \"userDetails\": {\n        \"mobileNumber\": 2234435524,\n        \"email\": \"someone@mail.com\",\n        \"lastName\": \"Sengar\",\n        \"firstName\": \"Rishabh\",\n        \"userId\": \"-E9zxTYA8\"\n    }\n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": " {\n    \"error\": true,\n    \"message\": \"Login Failed\",\n    \"status\": 400,\n    \"data\": null    \n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "app/routes/user.js",
+    "groupTitle": "auth",
+    "name": "PostApiV1UsersLogin"
+  },
+  {
+    "group": "dashboard",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/createMeeting",
+    "title": "api for create meeting .",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken:",
+            "description": "<p>auth token. (query params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingTitle",
+            "description": "<p>meetingTitle of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingDate:",
+            "description": "<p>meetingDate  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingStartTimeHour",
+            "description": "<p>meetingStartTimeHour of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingStartTimeSecond:",
+            "description": "<p>meetingStartTimeSecond  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingStartTimeFrame:",
+            "description": "<p>meetingStartTimeFrame  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "metingEndTimeHour:",
+            "description": "<p>metingEndTimeHour  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "metingEndTimeSecond:",
+            "description": "<p>metingEndTimeSecond  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingEndTimeFrame:",
+            "description": "<p>meetingEndTimeFrame  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingDescription:",
+            "description": "<p>meetingDescription  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingLocation:",
+            "description": "<p>meetingLocation  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingUserId:",
+            "description": "<p>meetingUserId  of the meeting. (post params) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n    \"error\": false,\n    \"message\": \"Meeting created\",\n    \"status\": 200,\n    \"data\": {\n        \"meetingTitle\": \"...............\",\n        \"meetingStartTimeSecond\": \"...............\",\n        \"meetingStartTimeFrame\": \"...............\",\n        \"meetingStartTimeHour\": \"...............\",\n        \"metingEndTimeHour\": \"...............\",\n        \"metingEndTimeSecond\": \"...............\",\n        \"meetingEndTimeFrame\": \"...............\",\n        \"meetingLocation\": \"...............\",\n        \"meetingDescription\": \"...............\",\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": " {\n    \"error\": true,\n    \"message\": \"Meeting Not Created\",\n    \"status\": 400,\n    \"data\": null    \n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "app/routes/user.js",
+    "groupTitle": "dashboard",
+    "name": "PostApiV1UsersCreatemeeting"
+  },
+  {
+    "group": "dashboard",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/deleteMeeting",
+    "title": "api for delete meeting .",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken:",
+            "description": "<p>auth token. (query params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingId:",
+            "description": "<p>meetingId. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userId:",
+            "description": "<p>userId. (post params) (optional)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n    \"error\": false,\n    \"message\": \"Meeting deleted successfully\",\n    \"status\": 200,\n    \"data\": null\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": " {\n    \"error\": true,\n    \"message\": \"Meeting Not deleted\",\n    \"status\": 400,\n    \"data\": null    \n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "app/routes/user.js",
+    "groupTitle": "dashboard",
+    "name": "PostApiV1UsersDeletemeeting"
+  },
+  {
+    "group": "dashboard",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/getAllUserByLimit",
+    "title": "api for get user data with limit.",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "skip",
+            "description": "<p>skip of the data user. (query params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "limit:",
+            "description": "<p>no of data required. (query params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken:",
+            "description": "<p>auth token. (query params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userId:",
+            "description": "<p>userId for get all meeting of user. (post params) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n    \"error\": false,\n    \"message\": \"All Meeting Found\",\n    \"status\": 200,\n    \"data\": [{\n        \"meetingTitle\": \"...............\",\n        \"meetingStartTimeSecond\": \"...............\",\n        \"meetingStartTimeFrame\": \"...............\",\n        \"meetingStartTimeHour\": \"...............\",\n        \"metingEndTimeHour\": \"...............\",\n        \"metingEndTimeSecond\": \"...............\",\n        \"meetingEndTimeFrame\": \"...............\",\n        \"meetingLocation\": \"...............\",\n        \"meetingDescription\": \"...............\",\n    }]\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": " {\n    \"error\": true,\n    \"message\": \"All Meeting Found\",\n    \"status\": 400,\n    \"data\": null    \n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "app/routes/user.js",
+    "groupTitle": "dashboard",
+    "name": "PostApiV1UsersGetalluserbylimit"
+  },
+  {
+    "group": "dashboard",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/getAllUserByLimit",
+    "title": "api for get user data with limit.",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "skip",
+            "description": "<p>skip of the data user. (query params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "limit:",
+            "description": "<p>no of data required. (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken:",
+            "description": "<p>auth token. (query params) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n    \"error\": false,\n    \"message\": \"All User Details Found\",\n    \"status\": 200,\n    \"data\": {\n        \"role\": \"...............\",\n        \"countryCode\": \"...............\",\n        \"mobileNumber\": \"...............\",\n        \"email\": \"...............\",\n        \"firstName\": \"...............\",\n        \"lastName\": \"...............\",\n        \"userId\": \"...............\",\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": " {\n    \"error\": true,\n    \"message\": \"No users Found\",\n    \"status\": 400,\n    \"data\": null    \n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "app/routes/user.js",
+    "groupTitle": "dashboard",
+    "name": "PostApiV1UsersGetalluserbylimit"
+  },
+  {
+    "group": "dashboard",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/getTodayMeetingsForSnooze",
+    "title": "api for get snoozed meeting detail .",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken:",
+            "description": "<p>auth token. (query params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingUserId:",
+            "description": "<p>userId. (post params) (optional)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n    \"error\": false,\n    \"message\": \"Meeting Found Successfully\",\n    \"status\": 200,\n    \"data\": []//array of record\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": " {\n    \"error\": true,\n    \"message\": \"Meeting Not Get\",\n    \"status\": 400,\n    \"data\": null    \n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "app/routes/user.js",
+    "groupTitle": "dashboard",
+    "name": "PostApiV1UsersGettodaymeetingsforsnooze"
+  },
+  {
+    "group": "dashboard",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/updateMeetingSnooze",
+    "title": "api for updating on server to get dissmiss for snooze .",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken:",
+            "description": "<p>auth token. (query params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingId:",
+            "description": "<p>meetingId. (post params) (optional)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n    \"error\": false,\n    \"message\": \"Meeting snooze Updated successfully\",\n    \"status\": 200,\n    \"data\": []//array of record\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": " {\n    \"error\": true,\n    \"message\": \"Meeting Not Updated\",\n    \"status\": 400,\n    \"data\": null    \n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "app/routes/user.js",
+    "groupTitle": "dashboard",
+    "name": "PostApiV1UsersUpdatemeetingsnooze"
+  },
+  {
+    "group": "dashboard",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/users/updateMeeting/:meetingId",
+    "title": "api for update meeting .",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken:",
+            "description": "<p>auth token. (query params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingTitle",
+            "description": "<p>meetingTitle of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingDate:",
+            "description": "<p>meetingDate  of the meeting. (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingStartTimeHour",
+            "description": "<p>meetingStartTimeHour of the meeting. (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingStartTimeSecond:",
+            "description": "<p>meetingStartTimeSecond  of the meeting. (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingStartTimeFrame:",
+            "description": "<p>meetingStartTimeFrame  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "metingEndTimeHour:",
+            "description": "<p>metingEndTimeHour  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "metingEndTimeSecond:",
+            "description": "<p>metingEndTimeSecond  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingEndTimeFrame:",
+            "description": "<p>meetingEndTimeFrame  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingDescription:",
+            "description": "<p>meetingDescription  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "meetingLocation:",
+            "description": "<p>meetingLocation  of the meeting. (post params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "/:meetingId:",
+            "description": "<p>meetingId  of the meeting. (url params) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n    \"error\": false,\n    \"message\": \"Meeting updated\",\n    \"status\": 200,\n    \"data\": {\n        \"meetingTitle\": \"...............\",\n        \"meetingStartTimeSecond\": \"...............\",\n        \"meetingStartTimeFrame\": \"...............\",\n        \"meetingStartTimeHour\": \"...............\",\n        \"metingEndTimeHour\": \"...............\",\n        \"metingEndTimeSecond\": \"...............\",\n        \"meetingEndTimeFrame\": \"...............\",\n        \"meetingLocation\": \"...............\",\n        \"meetingDescription\": \"...............\",\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": " {\n    \"error\": true,\n    \"message\": \"Meeting Not updated\",\n    \"status\": 400,\n    \"data\": null    \n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "app/routes/user.js",
+    "groupTitle": "dashboard",
+    "name": "PostUsersUpdatemeetingMeetingid"
+  },
+  {
+    "group": "users",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/checkUserOtpGenrateForForgetPassword",
+    "title": "api for user signup.",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email of the user. (body params) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n    \"error\": false,\n    \"message\": \"Otp Generated\",\n    \"status\": 200,\n    \"data\": {\n        \"email\":\".........\",\n    }\n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": " {\n    \"error\": true,\n    \"message\": \"..........\",\n    \"status\": 404,\n    \"data\": null\n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "app/routes/user.js",
+    "groupTitle": "users",
+    "name": "PostApiV1UsersCheckuserotpgenrateforforgetpassword"
+  },
+  {
+    "group": "users",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/OtpValidateForForgetPassword",
+    "title": "api for validating user otp and saving password.",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email of the user. (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "otp",
+            "description": "<p>otp for validating . (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>password of the login. (body params) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n    \"error\": false,\n    \"message\": \"Password Updated\",\n    \"status\": 200,\n    \"data\": object\n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": " {\n    \"error\": true,\n    \"message\": \"..........\",\n    \"status\": 404,\n    \"data\": null\n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "app/routes/user.js",
+    "groupTitle": "users",
+    "name": "PostApiV1UsersOtpvalidateforforgetpassword"
+  },
+  {
+    "group": "users",
+    "version": "1.0.0",
+    "type": "post",
+    "url": "/api/v1/users/signup",
+    "title": "api for user signup.",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "firstName",
+            "description": "<p>firstName of the user. (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "lastName",
+            "description": "<p>lastName of the user. (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>password of the user. (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email of the user. (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "mobileNumber",
+            "description": "<p>mobileNumber of the user. (body params) (required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "countryCode",
+            "description": "<p>countryCode of the user. (body params) (required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "myResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n    \"error\": false,\n    \"message\": \"User created\",\n    \"status\": 200,\n    \"data\": {\n        \"mobileNumber\":\".........\",\n        \"email\":\"..........\",\n        \"lastName\":\".........\",\n        \"firstName\":\"............\"\n    }\n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": " {\n    \"error\": true,\n    \"message\": \"User Already Present With this Email or Mobile Number\",\n    \"status\": 400,\n    \"data\": null\n\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "app/routes/user.js",
+    "groupTitle": "users",
+    "name": "PostApiV1UsersSignup"
+  }
+] });
