@@ -272,6 +272,8 @@ meetingController.getTodayMeetingsForSnooze =(req,res)=>{
                     var filterdata= []
                      meetingResult.forEach((res)=>{
                       let dateObj = new Date(res.meetingDate)
+                      console.log(todayDate.getDate()+"/"+todayDate.getMonth()+'/'+todayDate.getFullYear())
+                      console.log(dateObj.getDate()+"/"+dateObj.getMonth()+'/'+dateObj.getFullYear())
                         if(todayDate.getMonth() == dateObj.getMonth() && todayDate.getFullYear()== dateObj.getFullYear()
                         && todayDate.getDate() == dateObj.getDate()){
                            
