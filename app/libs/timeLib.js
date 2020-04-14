@@ -1,6 +1,6 @@
 const moment = require('moment')
 const momenttz = require('moment-timezone')
-const timeZone = 'Asia/Calcutta'
+const timeZone = 'Asia/Calcutta|Asia/Kolkata'
 let now = () => {
   return moment.utc().format()
 }
@@ -14,7 +14,7 @@ let convertToLocalTime = (time) => {
 }
 
 let getCurrentTimeFOrTimeDifference=()=>{
-  return moment().tz(timeZone).format('MM/DD/YYYY h:mm a'); 
+  return moment().utcOffset("+05:30").format('MM/DD/YYYY h:mm a'); 
 }
 module.exports = {
   now: now,

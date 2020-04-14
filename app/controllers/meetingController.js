@@ -250,9 +250,10 @@ meetingController.getTodayMeetingsForSnooze =(req,res)=>{
         let apiResponse = response.generate(true, 'No Data Found', 404, null)
         res.send(apiResponse)
     }
-    let todayDate =new Date();
  
-    let todayDateSS = time.getCurrentTimeFOrTimeDifference()
+ 
+    let todayDateSS = time.getCurrentTimeFOrTimeDifference();
+    let todayDate =new Date();
     let miliSecond = new Date(todayDateSS).getTime()
     let userId = req.body.meetingUserId;
     MeetingModel.find({meetingUserId:userId,snooze:true})
@@ -272,6 +273,7 @@ meetingController.getTodayMeetingsForSnooze =(req,res)=>{
                     var filterdata= []
                      meetingResult.forEach((res)=>{
                       let dateObj = new Date(res.meetingDate)
+                      console.log(todayDateSS+'shubham');
                       console.log(todayDate.getDate()+"/"+todayDate.getMonth()+'/'+todayDate.getFullYear())
                       console.log(dateObj.getDate()+"/"+dateObj.getMonth()+'/'+dateObj.getFullYear())
                         if(todayDate.getMonth() == dateObj.getMonth() && todayDate.getFullYear()== dateObj.getFullYear()
